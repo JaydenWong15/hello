@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jayden</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --card: #ffffff;
+      --text: #14161a;
+      --muted: #5f6672;
+      --accent: #1f6feb;
+      --line: #e4e7ec;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1013;
+        --card: #16191e;
+        --text: #eef1f5;
+        --muted: #9aa3af;
+        --accent: #58a6ff;
+        --line: #262b33;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+    .date {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 10vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    h1 span { color: var(--accent); }
+    .role {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--line);
+      margin: 28px 0;
+    }
+    .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .problem {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    @media (min-width: 640px) {
+      main { padding: 48px 44px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="date" id="today">Loading date</p>
+
+    <h1>Jayden<span>.</span></h1>
+    <p class="role">MSc student, National College of Ireland</p>
+
+    <hr>
+
+    <p class="label">A problem I care about</p>
+    <p class="problem">
+      Finance teams still lose days every month to manual spreadsheet work, and I want to help them spend that time on decisions instead.
+    </p>
+  </main>
+
+  <script>
+    const el = document.getElementById("today");
+    el.textContent = new Date().toLocaleDateString("en-IE", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+  </script>
+</body>
+</html>
